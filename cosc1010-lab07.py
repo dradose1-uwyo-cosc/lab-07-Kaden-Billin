@@ -1,9 +1,11 @@
-# Your Name Here
+# Kaden Billin
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
+# 10-31-2024
+# Lab 07
+# Lab Section: 12
 # Sources, people worked with, help given to: 
+    # Used ChatGPT to troubleshoot why, when an invalid character was entered and THEN a valid number was entered, it would still treat it as if it were invalid.
+    # I had tried to use a while loop for this function, and I replaced it with a for loop and it worked.
 # your
 # comments
 # here
@@ -17,7 +19,25 @@
     # If a user did not enter a number output a statement saying so
 # You will continue to prompt the user until a proper integer value is entered
 
-factorial = 1
+def initial():
+    upper = input("Please enter an upper bound: ")
+
+    if upper.isdigit() == True and int(upper) > 0:
+        print("The inputted upper bound is: "+upper)
+        return int(upper)
+    else:
+        print("Please enter a positive number!")
+        return initial()
+    
+upper_bound = initial()
+
+def fact():
+    x = 0
+    for i in range (1,upper_bound):
+        x += int(upper_bound)*i
+        return int(x)
+
+factorial = fact()
 
 print(f"The result of the factorial based on the given bound is {factorial}")
 
